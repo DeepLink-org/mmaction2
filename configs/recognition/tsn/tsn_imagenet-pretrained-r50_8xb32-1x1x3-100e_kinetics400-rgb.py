@@ -59,9 +59,9 @@ test_pipeline = [
 
 train_dataloader = dict(
     batch_size=32,
-    num_workers=8,
-    persistent_workers=True,
-    sampler=dict(type='DefaultSampler', shuffle=True),
+    num_workers=0,
+    persistent_workers=False,
+    sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_train,
@@ -69,8 +69,8 @@ train_dataloader = dict(
         pipeline=train_pipeline))
 val_dataloader = dict(
     batch_size=32,
-    num_workers=8,
-    persistent_workers=True,
+    num_workers=0,
+    persistent_workers=False,
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
         type=dataset_type,
@@ -80,8 +80,8 @@ val_dataloader = dict(
         test_mode=True))
 test_dataloader = dict(
     batch_size=1,
-    num_workers=8,
-    persistent_workers=True,
+    num_workers=0,
+    persistent_workers=False,
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
         type=dataset_type,
